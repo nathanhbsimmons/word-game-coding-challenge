@@ -8,16 +8,39 @@ function count(state = 0, action){
     return state;
 }
 
-// function sites(state = [], action){
-//   if(action.type === "SITES_FETCHED"){
-//     return action.value;
-//   }
-//   return state;
-// }
+function letters(state = [], action){
+  if(action.type === "SET_LETTERS"){
+    return action.value;
+  }
+  return state;
+}
+
+function wordsUsed(state = [], action){
+  if(action.type === "SET_WORDS_USED"){
+    return action.value;
+  }
+  return state;
+}
+
+function playersWords(state = [], action){
+  if(action.type === "SET_PLAYERS_WORDS"){
+    return action.value;
+  }
+  return state;
+}
+
+function error(state = "", action){
+  if(action.type === "SET_ERROR"){
+    return action.value;
+  }
+  return state;
+}
+
+
 
 
 
   const rootReducer = combineReducers({
-    count
+    count, letters, wordsUsed, playersWords, error
   });
   export default rootReducer;
