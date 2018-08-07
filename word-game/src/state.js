@@ -1,6 +1,6 @@
 export default {
     count: 60,
-    letters: [],
+    letters: null,
     wordsUsed: [],
     playersWords: [],
     error: null,

@@ -5,11 +5,24 @@ export function setCount(count){
     }
   }
   
-  export function setDisplaySite(displaySite){
+  export function generateLetters(){
     return {
-      type:"SET_DISPLAY_SITE",
-      value: displaySite
+      type:"GENERATE_LETTERS",
     }
   } 
+
+  export function inputPlayersWord(word){
+    return {
+      type:"INPUT_PLAYERS_WORDS",
+      value: word
+    }
+  }
+
+  export function setWordsUsed(word){
+    return {
+      type:"SET_WORDS_USED",
+      value: word
+    }
+  }
 
   

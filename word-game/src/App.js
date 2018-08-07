@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import GenerateLettersButtonContainer from './containers/GenerateLettersButtonContainer';
+import LettersDisplayContainer from './containers/LettersDisplayContainer';
 
-class App extends Component {
-  
-
+class App extends Component { 
 
   startTimer = () => {
     console.log("timer started")
@@ -14,14 +14,12 @@ class App extends Component {
   render(props) {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+       
+        
         <h2>{this.props.count}</h2>
         <button onClick={()=>{this.startTimer()}}>Play</button>
+        <GenerateLettersButtonContainer/>
+        <LettersDisplayContainer/>
       </div>
     );
   }
