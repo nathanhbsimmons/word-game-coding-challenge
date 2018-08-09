@@ -1,5 +1,6 @@
 import {combineReducers} from "redux";
 
+
 function count(state = 0, action){
     if(action.type === "SET_COUNT"){
       //don't want to directly mutate state, thus no state++
@@ -35,6 +36,7 @@ function letters(state = [], action){
 
 function wordsUsed(state = [], action){
   if(action.type === "SET_WORDS_USED"){
+    
     return [...state, action.value];
   }
   return state;
@@ -42,6 +44,8 @@ function wordsUsed(state = [], action){
 
 function playersWords(state = [], action){
   if(action.type === "INPUT_PLAYERS_WORDS"){
+    
+  
     return [...state, action.value];
   }
   return state;

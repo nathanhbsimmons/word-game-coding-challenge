@@ -1,6 +1,6 @@
 import WordInput from "../components/WordInput";
 import { connect } from "react-redux";
-import { inputPlayersWord, setWordsUsed } from "../actions";
+import { inputPlayersWord, setWordsUsed} from "../actions";
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -15,6 +15,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const mapStateToProps = state => ({ playersWords: state.playersWords, wordsUsed: state.wordsUsed })
+const mapStateToProps = state => ({ playersWords: state.playersWords, wordsUsed: state.wordsUsed, letters: state.letters })
 
 export default connect(mapStateToProps,mapDispatchToProps)(WordInput);

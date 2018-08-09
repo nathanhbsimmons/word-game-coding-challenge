@@ -2,24 +2,31 @@ import React, { Component } from 'react';
 import './App.css';
 import GenerateLettersButtonContainer from './containers/GenerateLettersButtonContainer';
 import LettersDisplayContainer from './containers/LettersDisplayContainer';
+import WordInputContainer from './containers/WordInputContainer';
+import EnteredWordsDisplayContainer from './containers/EnteredWordsDisplayContainer';
+import EnterUsername from './components/EnterUsername';
+import StartTimerContainer from './containers/StartTimerContainer';
+
+
+
 
 class App extends Component { 
+  
 
-  startTimer = () => {
-    console.log("timer started")
-    setInterval(() => this.props.setCount(), 1000);
-    ;
-  };
+  
   
   render(props) {
+   
     return (
       <div className="App">
        
         
-        <h2>{this.props.count}</h2>
-        <button onClick={()=>{this.startTimer()}}>Play</button>
+        <StartTimerContainer/>
         <GenerateLettersButtonContainer/>
         <LettersDisplayContainer/>
+        <WordInputContainer/>
+        <EnteredWordsDisplayContainer/>
+        <EnterUsername/>
       </div>
     );
   }
