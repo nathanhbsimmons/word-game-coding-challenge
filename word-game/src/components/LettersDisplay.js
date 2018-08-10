@@ -5,7 +5,7 @@ function LettersDisplay(props) {
     const letters = props.letters
 
         if(letters){
-         return <p>{props.letters}</p>
+            return props.letters.map((letter)=><p className="letters">{letter}</p>)
         } else {
         return <div></div>
         }  

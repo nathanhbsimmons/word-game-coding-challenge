@@ -1,8 +1,12 @@
 
 import fire from './firebase/firebase';
 
-const gameRef = fire.database().ref("/games");
-const dbUser = fire.database().ref('/users');
+export const gameRef = fire.database().ref("/games");
+export const dbUser = fire.database().ref('/users');
+export const dbUserWords = fire.database().ref('/users');
+export const dbWords = fire.database().ref('/words');
+
+
 
 export const createUser=(user)=>{
     dbUser.update({"username": user})
@@ -12,9 +16,17 @@ export const createGame=(user)=>{
     
     let currentGame = {
         creator: {uid: user.uid, displayName: user.displayName},
-        // state: STATE.OPEN
     }
     gameRef.push().set(currentGame)
+}
+
+export const updateDB=(word)=>{
+    dbWords.update({"used": word})
+    dbUserWords.update({"user1": word})
+}
+
+export const checkForWinner=()=>{
+
 }
 
 export const checkLetters = (word, props) => {

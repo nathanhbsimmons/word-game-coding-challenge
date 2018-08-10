@@ -6,7 +6,7 @@ class StartTimer extends Component {
 
     timer = () => {
         if(this.props.count === 0){
-          clearInterval(interval)
+          clearInterval(interval) 
         } else {
           this.props.setCount()
         }
@@ -21,7 +21,6 @@ class StartTimer extends Component {
   render(props) {
     return (
         <div>
-        <h2>{this.props.count}</h2>
         <button onClick={()=>{this.startTimer()}}>Play</button>
         </div>
     );

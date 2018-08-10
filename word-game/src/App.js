@@ -6,6 +6,9 @@ import WordInputContainer from './containers/WordInputContainer';
 import EnteredWordsDisplayContainer from './containers/EnteredWordsDisplayContainer';
 import EnterUsername from './components/EnterUsername';
 import StartTimerContainer from './containers/StartTimerContainer';
+import UsedWordsDisplay from './components/UsedWordsDisplay';
+import TimerContainer from './containers/TimerContainer';
+
 
 
 
@@ -22,11 +25,17 @@ class App extends Component {
        
         
         <StartTimerContainer/>
+        <TimerContainer/>
         <GenerateLettersButtonContainer/>
-        <LettersDisplayContainer/>
+
+          <div className="lettersContainer">
+            <LettersDisplayContainer/>
+          </div>
+        
         <WordInputContainer/>
         <EnteredWordsDisplayContainer/>
         <EnterUsername/>
+        <UsedWordsDisplay/>
       </div>
     );
   }

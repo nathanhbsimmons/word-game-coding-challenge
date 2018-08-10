@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fire from '../firebase/firebase';
 import firebase from 'firebase';
-import {checkLetters} from '../scripts.js'
+import {checkLetters, updateDB} from '../scripts.js'
 
 
  
@@ -11,21 +11,6 @@ class WordInput extends Component {
         error: null
     }
     
-    updateDB = (props) => {
-        let wordsUsed = this.props.wordsUsed
-        if(wordsUsed){
-        var dbWords = fire.database().ref('/words');
-        var dbUserWords = fire.database().ref('/users');
-        dbWords.update({"used": this.props.wordsUsed})
-        dbUserWords.update({"user1": this.props.playersWords})
-        // dbWords.child('used').on('value', (snapshot)=>this.props.setWordsUsed(snapshot.val()))
-        }  
-    }
-
-    componentDidUpdate(){
-        this.updateDB()
-    }
-   
     checkWord = (e, props, fire) => {
        
         if (e.key === 'Enter' && e.target.value !== ""){
@@ -39,6 +24,8 @@ class WordInput extends Component {
         } else {
             this.setState({error: null})
             this.props.inputPlayersWord(word)
+            this.props.setWordsUsed(word)
+            updateDB(word)
         }
     }   
     }
