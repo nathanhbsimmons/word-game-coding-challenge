@@ -7,7 +7,7 @@ function LettersDisplay(props) {
         if(letters){
             return props.letters.map((letter)=><p className="letters">{letter}</p>)
         } else {
-        return <div></div>
+            return <div className="emptyDiv"></div>
         }  
 }
  

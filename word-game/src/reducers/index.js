@@ -1,66 +1,66 @@
 import {combineReducers} from "redux";
 
-
-function count(state = 0, action){
-    if(action.type === "SET_COUNT"){
-      //don't want to directly mutate state, thus no state++
-      return state -1;
-    }
-    return state;
+function count(state = 0, action) {
+  if (action.type === "SET_COUNT") {
+    return state - 1;
+  }
+  if (action.type === "RESET_COUNT") {
+    return state = 60;
+  }
+  return state;
 }
 
-function letters(state = [], action){
-  if(action.type === "GENERATE_LETTERS"){
-      let vowelArr = [];
-      let consArr = [];
-      let anyArr = []
-      
-      const possibleVowels = "AEIOU";
-      const possibleCons = "BCDFGHJKLMNPQRSTVWXYZ";
-      const possibleAll = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+function letters(state = [], action) {
+  if (action.type === "GENERATE_LETTERS") {
+    let vowelArr = [];
+    let consArr = [];
+    let anyArr = []
 
-      for (let i = 0; i < 2; i++){
-        vowelArr.push(possibleVowels.charAt(Math.floor(Math.random() * possibleVowels.length)));
-      }
-      for (let i = 0; i < 2; i++){
-        consArr.push(possibleCons.charAt(Math.floor(Math.random() * possibleCons.length)));
-      }
-      for (let i = 0; i < 5; i++){
-        anyArr.push(possibleAll.charAt(Math.floor(Math.random() * possibleAll.length)));
-      }
+    const possibleVowels = "AEIOU";
+    const possibleCons = "BCDFGHJKLMNPQRSTVWXYZ";
+    const possibleAll = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    for (let i = 0; i < 2; i++) {
+      vowelArr.push(possibleVowels.charAt(Math.floor(Math.random() * possibleVowels.length)));
+    }
+    for (let i = 0; i < 2; i++) {
+      consArr.push(possibleCons.charAt(Math.floor(Math.random() * possibleCons.length)));
+    }
+    for (let i = 0; i < 5; i++) {
+      anyArr.push(possibleAll.charAt(Math.floor(Math.random() * possibleAll.length)));
+    }
     return consArr.concat(anyArr, vowelArr)
   }
   return state;
 }
 
-function wordsUsed(state = [], action){
-  if(action.type === "SET_WORDS_USED"){
-    
+function wordsUsed(state = [], action) {
+  if (action.type === "SET_WORDS_USED") {
     return [...state, action.value];
+  }
+  if (action.type === "RESET_WORDS_USED") {
+    return state = [];
   }
   return state;
 }
 
-function playersWords(state = [], action){
-  if(action.type === "INPUT_PLAYERS_WORDS"){
-    
-  
+function playersWords(state = [], action) {
+  if (action.type === "INPUT_PLAYERS_WORDS") {
     return [...state, action.value];
+  }
+  if (action.type === "RESET_WORDS_USED") {
+
+    return state = [];
   }
   return state;
 }
 
-function error(state = "", action){
-  if(action.type === "SET_ERROR"){
+function error(state = "", action) {
+  if (action.type === "SET_ERROR") {
     return action.value;
   }
   return state;
 }
-
-
-
-
 
   const rootReducer = combineReducers({
     count, letters, wordsUsed, playersWords, error

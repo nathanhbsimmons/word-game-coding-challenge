@@ -3,9 +3,61 @@
 body {
   background-image: url('./img/mario.png');
   background-size:cover;
-  /* background:  rgb(250,235,215); */
   color: ghostwhite;
   font-family: 'Press Start 2P', cursive;
+  position: relative;
+  height: 100vh;
+}
+
+.App {
+  
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin: .3em;
+
+}
+
+.submitButton {
+  background-image: url('./img/titlebrick.png');
+  background-size:cover;
+  width: 8em;
+  height: 23px;
+  color: ghostwhite;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 8px 2px #888888;
+  margin: auto 0;
+}
+
+.startButton {
+  background-image: url('./img/titlebrick.png');
+  background-size:cover;
+  width: 10em;
+  height: 5em;
+  color: ghostwhite;
+  font-family: 'Press Start 2P', cursive;
+  font-size: .5em;
+  border-radius: 3px;
+  box-shadow: 3px 3px 8px 2px #888888;
+  margin: auto 0;
+}
+
+.startContainer {
+  position: absolute;
+  width: 100%;
+  bottom: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.emptyDiv {
+  height: 60px;
 }
 
 .letters {
@@ -20,11 +72,42 @@ body {
   font-size: 2em;
   margin: .1em;
   box-shadow: 3px 3px 8px 2px #888888;
-  
-   
 }
 
 .lettersContainer {
   display: flex;
   justify-content: center;
+}
+
+.wordsContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  font-weight: lighter;
+  position: absolute;
+  bottom: 0;
+  letter-spacing: .5px;
+  line-height: 95%;
+  text-shadow: 3px 3px 8px #888888;
+}
+
+/* iPhone Portrait */
+@media screen and (max-device-width: 480px) and (orientation:portrait) {
+  footer {
+    font-size: 12px;
+  }
+}
+/* iPhone Landscape */
+@media screen and (max-device-width: 480px) and (orientation:landscape) {
+  footer {
+    font-size: 12px;
+  }
 }

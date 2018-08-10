@@ -3,25 +3,26 @@ import {createUser} from '../scripts.js'
  
 class EnterUsername extends Component {
  state = {
-     input: ""
+   input: ""
  }
 
  handleChange = (e) => {
-    this.setState({ input: e.target.value });
-  }
+   this.setState({
+     input: e.target.value
+   });
+ }
 
-  handleClick = () => {
-    console.log(this.state.input)
-    createUser(this.state.input)
-  }
+ handleClick = () => {
+   console.log(this.state.input)
+   createUser(this.state.input)
+ }
 
   render() {
     return (
         <div>
-        Create Username:
-        <input type="text" onChange={(e)=>this.handleChange(e)}/>
-        <input type="submit" value="submit" onClick={()=>this.handleClick()}/>
-
+          Create Username:<br/>
+          <input type="text" onChange={(e)=>this.handleChange(e)}/>
+          <input className="submitButton" type="submit" value="SUBMIT" onClick={()=>this.handleClick()}/>
         </div>
     );
   }

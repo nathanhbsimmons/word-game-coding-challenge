@@ -1,12 +1,13 @@
 
-
-
-
-
-export function setCount(count){
+export function setCount(){
     return {
-      type:"SET_COUNT",
-      value: count
+      type:"SET_COUNT"
+    }
+  }
+
+  export function resetCount(){
+    return {
+      type:"RESET_COUNT"
     }
   }
   
@@ -29,6 +30,21 @@ export function setCount(count){
       value: word
     }
   }
+
+  export function resetWordsUsed(){
+    return {
+      type:"RESET_WORDS_USED"
+    }
+  }
+
+  export function setError(error){
+    return {
+      type:"SET_ERROR",
+      value: error
+    }
+  }
+
+
 
   // export function inputPlayersWordDB(word, fire){
     
