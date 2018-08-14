@@ -18,6 +18,7 @@ export const createGame=(user)=>{
         game: {user: {user: "", words: ""}},
     }
     gameRef.set(currentGame)
+    dbWords.set('')
 }
 
 export const updateDB=(word)=>{

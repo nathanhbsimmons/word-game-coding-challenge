@@ -7,7 +7,7 @@ import {checkLetters, updateDB, dbWords} from '../scripts.js'
 class WordInput extends Component {
 
 componentDidMount(){
-    dbWords.on('value', snap => this.props.setWordsUsed(snap.val()))
+    dbWords.on('value', snap => this.props.setWordsUsed(Object.values(snap.val())))
 }
 
 checkWord = (e, props, fire) => {

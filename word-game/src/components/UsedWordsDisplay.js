@@ -5,7 +5,7 @@ class UsedWordsDisplay extends Component {
     
 
    renderUsedWords = (dbWords) => {
-        console.log(dbWords)
+        
         
             dbWords.child('used').on('value', (snapshot)=>{
                 return (
