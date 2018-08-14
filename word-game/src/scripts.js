@@ -2,9 +2,9 @@
 import fire from './firebase/firebase';
 
 export const gameRef = fire.database().ref("/games");
-export const dbUser = fire.database().ref('/users');
-export const dbUserWords = fire.database().ref('/users');
-export const dbWords = fire.database().ref('/words');
+export const dbUser = fire.database().ref('/games/game/users');
+export const dbUserWords = fire.database().ref('/games/game/user');
+export const dbWords = fire.database().ref('/words').child('used');
 
 
 
@@ -15,15 +15,17 @@ export const createUser=(user)=>{
 export const createGame=(user)=>{
     
     let currentGame = {
-        creator: {uid: user.uid, displayName: user.displayName},
+        game: {user: {user: "", words: ""}},
     }
-    gameRef.push().set(currentGame)
+    gameRef.set(currentGame)
 }
 
 export const updateDB=(word)=>{
-    dbWords.update({"used": word})
-    dbUserWords.update({"user1": word})
+    dbWords.push(word)
+    dbUserWords.child('words').push(word)
 }
+
+
 
 export const checkForWinner=()=>{
 

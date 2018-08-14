@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import fire from '../firebase/firebase';
 import firebase from 'firebase';
-import {checkLetters, updateDB} from '../scripts.js'
+import {checkLetters, updateDB, dbWords} from '../scripts.js'
 
 
- 
 class WordInput extends Component {
+
+componentDidMount(){
+    dbWords.on('value', snap => this.props.setWordsUsed(snap.val()))
+}
 
 checkWord = (e, props, fire) => {
     if (e.key === 'Enter' && e.target.value !== "") {
@@ -22,7 +25,7 @@ checkWord = (e, props, fire) => {
         } else {  
             this.props.setError(null)
             this.props.inputPlayersWord(word)
-            this.props.setWordsUsed(word)
+            // this.props.setWordsUsed(word)
             updateDB(word)
         }
         e.target.value = ""
@@ -37,6 +40,8 @@ renderErrorMessage=(props)=>{
     }
 }
   render(props) {
+    
+   
     return (
         <div>
             <input  type="text" onKeyPress={(e)=>{this.checkWord(e)}}/>

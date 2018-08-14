@@ -20,6 +20,17 @@ header {
 
 }
 
+input[type='text'],
+textarea {
+  font-size: 16px;
+}
+
+input[type='text'],
+select:focus,
+textarea {
+  font-size: 16px;
+}
+
 .submitButton {
   background-image: url('./img/titlebrick.png');
   background-size:cover;

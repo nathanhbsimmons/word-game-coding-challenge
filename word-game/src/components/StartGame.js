@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {createGame} from '../scripts'
 
 let interval
  
@@ -26,7 +27,7 @@ class StartGame extends Component {
   render(props) {
     return (
         <div className="startButtonDiv" >
-          <button className="startButton" onClick={()=>{this.startTimer(); this.props.generateLetters()}}>PLAY</button>
+          <button className="startButton" onClick={()=>{this.startTimer(); this.props.generateLetters(); createGame()}}>PLAY</button>
         </div>
     );
   }

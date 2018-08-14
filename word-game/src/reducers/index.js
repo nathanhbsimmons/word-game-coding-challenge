@@ -36,7 +36,7 @@ function letters(state = [], action) {
 
 function wordsUsed(state = [], action) {
   if (action.type === "SET_WORDS_USED") {
-    return [...state, action.value];
+    return [action.value];
   }
   if (action.type === "RESET_WORDS_USED") {
     return state = [];
