@@ -4,6 +4,7 @@ import fire from './firebase/firebase';
 export const gameRef = fire.database().ref("/games");
 export const dbUser = fire.database().ref('/games/game/users');
 export const dbUserWords = fire.database().ref('/games/game/user');
+export const dbLetters = fire.database().ref('/games/game/letters'); 
 export const dbWords = fire.database().ref('/words').child('used');
 
 
@@ -26,10 +27,30 @@ export const updateDB=(word)=>{
     dbUserWords.child('words').push(word)
 }
 
-
-
 export const checkForWinner=()=>{
 
+}
+
+export const generateLetters=()=>{
+    let vowelArr = [];
+    let consArr = [];
+    let anyArr = []
+
+    const possibleVowels = "AEIOU";
+    const possibleCons = "BCDFGHJKLMNPQRSTVWXYZ";
+    const possibleAll = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    for (let i = 0; i < 2; i++) {
+      vowelArr.push(possibleVowels.charAt(Math.floor(Math.random() * possibleVowels.length)));
+    }
+    for (let i = 0; i < 2; i++) {
+      consArr.push(possibleCons.charAt(Math.floor(Math.random() * possibleCons.length)));
+    }
+    for (let i = 0; i < 5; i++) {
+      anyArr.push(possibleAll.charAt(Math.floor(Math.random() * possibleAll.length)));
+    }
+    
+    return (consArr.concat(anyArr, vowelArr), dbWords.push(consArr.concat(anyArr, vowelArr)))
 }
 
 export const checkLetters = (word, props) => {
