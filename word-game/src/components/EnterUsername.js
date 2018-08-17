@@ -19,10 +19,11 @@ clearInput=()=>{
 }
 
  handleClick = () => {
-   console.log(this.state.input)
-   createGame(this.state.input)
-   createUser(this.state.input)
-   this.clearInput()
+   if(this.state.input !== ""){
+    createGame(this.state.input)
+    createUser(this.state.input)
+    this.clearInput()
+   }
  }
 
   render() {

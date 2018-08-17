@@ -28,7 +28,13 @@ export const updateDB=(word)=>{
 }
 
 export const checkForWinner=()=>{
-        
+    let userWordsArr
+    dbUserWords.child('words').once('value', snap =>{
+
+        userWordsArr = Object.values(snap.val())
+        console.log(userWordsArr)
+    })
+   
 }
 
 export const generateLetters=()=>{
