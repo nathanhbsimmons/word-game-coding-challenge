@@ -5,15 +5,8 @@ let interval
  
 class StartGame extends Component {
 
-    timer = () => {
-      if (this.props.count === 0) {
-        clearInterval(interval);
-        checkForWinner();
-      } else {
-        this.props.setCount();
-      }
-    }
-
+    timer = () => this.props.count === 0 ? (clearInterval(interval), checkForWinner()) : this.props.setCount();
+        
     startTimer = () => {
       if (this.props.count !== 60) {
         this.props.resetCount();

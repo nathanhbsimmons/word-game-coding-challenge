@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import fire from '../firebase/firebase';
 import firebase from 'firebase';
-import {checkLetters, updateDB, dbWords} from '../scripts.js'
+import {checkLetters, updateDB, dbWordsUsed} from '../scripts.js'
 
 
 class WordInput extends Component {
 
 componentDidMount(){
-    dbWords.on('value', snap => this.props.setWordsUsed(Object.values(snap.val())))
+    dbWordsUsed.on('value', snap => this.props.setWordsUsed(Object.values(snap.val())))
 }
 
 checkWord = (e, props, fire) => {
@@ -15,13 +15,10 @@ checkWord = (e, props, fire) => {
         let word = e.target.value.toUpperCase();
         if ((/([a-zA-Z]).*?\1/).test(word)) {
             return this.props.setError("Can't use letter more than once!")
-          
         } else if (this.props.wordsUsed.indexOf(word) !== -1) {
             return this.props.setError("Word has already been used!")
-            
         } else if (!checkLetters(word, this.props)) {
             return this.props.setError("Must use letters above!")
-          
         } else {  
             this.props.setError(null)
             this.props.inputPlayersWord(word)
@@ -30,6 +27,7 @@ checkWord = (e, props, fire) => {
         e.target.value = ""
     }
 }
+
 renderErrorMessage=(props)=>{
     let error = this.props.error
     if(error){
@@ -38,9 +36,8 @@ renderErrorMessage=(props)=>{
         return <h2></h2>
     }
 }
+
   render(props) {
-    
-   
     return (
         <div>
             <input  type="text" onKeyPress={(e)=>{this.checkWord(e)}}/>

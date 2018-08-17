@@ -5,7 +5,7 @@ export const gameRef = fire.database().ref("/games");
 export const dbUser = fire.database().ref('/games/game/users');
 export const dbUserWords = fire.database().ref('/games/game/user');
 export const dbLetters = fire.database().ref('/games/game/letters'); 
-export const dbWords = fire.database().ref('/words').child('used');
+export const dbWordsUsed = fire.database().ref('/words').child('used');
 
 
 
@@ -16,14 +16,14 @@ export const createUser=(user)=>{
 export const createGame=(user)=>{
     
     let currentGame = {
-        game: {user: {user: "", words: ""}},
+        game: {user: {user: user, words: ""}},
     }
     gameRef.set(currentGame)
-    dbWords.set('')
+    dbWordsUsed.set('')
 }
 
 export const updateDB=(word)=>{
-    dbWords.push(word)
+    dbWordsUsed.push(word)
     dbUserWords.child('words').push(word)
 }
 
@@ -49,7 +49,7 @@ export const generateLetters=()=>{
     for (let i = 0; i < 5; i++) {
       anyArr.push(possibleAll.charAt(Math.floor(Math.random() * possibleAll.length)));
     }
-    dbWords.push(consArr.concat(anyArr, vowelArr))
+    dbLetters.set(consArr.concat(anyArr, vowelArr))
     return consArr.concat(anyArr, vowelArr)
 }
 

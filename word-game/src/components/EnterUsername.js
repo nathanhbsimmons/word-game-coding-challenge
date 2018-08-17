@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {createUser} from '../scripts.js'
+import {createUser, createGame} from '../scripts.js'
  
 class EnterUsername extends Component {
  state = {
@@ -10,18 +10,27 @@ class EnterUsername extends Component {
    this.setState({
      input: e.target.value
    });
- }
+}
+
+clearInput=()=>{
+  this.setState({
+    input: ""
+  });
+}
 
  handleClick = () => {
    console.log(this.state.input)
+   createGame(this.state.input)
    createUser(this.state.input)
+   this.clearInput()
  }
 
   render() {
     return (
         <div>
-          Create Username:<br/>
-          <input type="text" onChange={(e)=>this.handleChange(e)}/>
+          Enter username<br/>
+          to create new game:<br/>
+          <input type="text" value={this.state.input} onChange={(e)=>this.handleChange(e)}/>
           <input className="submitButton" type="submit" value="SUBMIT" onClick={()=>this.handleClick()}/>
         </div>
     );
