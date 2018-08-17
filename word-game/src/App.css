@@ -110,6 +110,17 @@ footer {
   text-shadow: 3px 3px 8px #888888;
 }
 
+/* Widescreen */
+@media screen and (min-width: 1800px) {
+  body {
+    background-size: 100% 100%;
+    background-color: green;
+  }
+  footer {
+    font-size: 22px;
+  }
+}
+
 /* iPhone Portrait */
 @media screen and (max-device-width: 480px) and (orientation:portrait) {
   footer {
