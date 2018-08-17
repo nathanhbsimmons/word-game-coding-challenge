@@ -12,24 +12,8 @@ function count(state = 0, action) {
 
 function letters(state = [], action) {
   if (action.type === "GENERATE_LETTERS") {
-    let vowelArr = [];
-    let consArr = [];
-    let anyArr = []
-
-    const possibleVowels = "AEIOU";
-    const possibleCons = "BCDFGHJKLMNPQRSTVWXYZ";
-    const possibleAll = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    for (let i = 0; i < 2; i++) {
-      vowelArr.push(possibleVowels.charAt(Math.floor(Math.random() * possibleVowels.length)));
-    }
-    for (let i = 0; i < 2; i++) {
-      consArr.push(possibleCons.charAt(Math.floor(Math.random() * possibleCons.length)));
-    }
-    for (let i = 0; i < 5; i++) {
-      anyArr.push(possibleAll.charAt(Math.floor(Math.random() * possibleAll.length)));
-    }
-    return consArr.concat(anyArr, vowelArr)
+   
+    return action.value
   }
   return state;
 }

@@ -28,7 +28,7 @@ export const updateDB=(word)=>{
 }
 
 export const checkForWinner=()=>{
-
+        
 }
 
 export const generateLetters=()=>{
@@ -49,8 +49,8 @@ export const generateLetters=()=>{
     for (let i = 0; i < 5; i++) {
       anyArr.push(possibleAll.charAt(Math.floor(Math.random() * possibleAll.length)));
     }
-    
-    return (consArr.concat(anyArr, vowelArr), dbWords.push(consArr.concat(anyArr, vowelArr)))
+    dbWords.push(consArr.concat(anyArr, vowelArr))
+    return consArr.concat(anyArr, vowelArr)
 }
 
 export const checkLetters = (word, props) => {

@@ -11,9 +11,10 @@ export function setCount(){
     }
   }
   
-  export function generateLetters(){
+  export function generateLetters(letters){
     return {
       type:"GENERATE_LETTERS",
+      value: letters
     }
   } 
 

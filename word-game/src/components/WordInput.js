@@ -25,7 +25,6 @@ checkWord = (e, props, fire) => {
         } else {  
             this.props.setError(null)
             this.props.inputPlayersWord(word)
-            // this.props.setWordsUsed(word)
             updateDB(word)
         }
         e.target.value = ""

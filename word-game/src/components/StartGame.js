@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {createGame} from '../scripts'
+import {createGame, checkForWinner, generateLetters} from '../scripts'
 
 let interval
  
@@ -7,18 +7,19 @@ class StartGame extends Component {
 
     timer = () => {
       if (this.props.count === 0) {
-        clearInterval(interval)
+        clearInterval(interval);
+        checkForWinner();
       } else {
-        this.props.setCount()
+        this.props.setCount();
       }
     }
 
     startTimer = () => {
       if (this.props.count !== 60) {
-        this.props.resetCount()
-        this.props.resetWordsUsed()
-        this.props.setError(null)
-        clearInterval(interval)
+        this.props.resetCount();
+        this.props.resetWordsUsed();
+        this.props.setError(null);
+        clearInterval(interval);
       }
       clearInterval(interval)
       interval = setInterval(() => this.timer(), 1000);
@@ -27,7 +28,7 @@ class StartGame extends Component {
   render(props) {
     return (
         <div className="startButtonDiv" >
-          <button className="startButton" onClick={()=>{this.startTimer(); this.props.generateLetters(); createGame()}}>PLAY</button>
+          <button className="startButton" onClick={()=>{this.startTimer(); this.props.generateLetters(generateLetters())}}>PLAY</button>
         </div>
     );
   }

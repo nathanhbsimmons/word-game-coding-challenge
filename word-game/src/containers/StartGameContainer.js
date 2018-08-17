@@ -8,8 +8,8 @@ function mapDispatchToProps(dispatch) {
           let action = setCount();
           dispatch(action);
         },
-        generateLetters: function () {
-          let action = generateLetters();
+        generateLetters: function (letters) {
+          let action = generateLetters(letters);
           dispatch(action);
         },
         resetCount: function () {
