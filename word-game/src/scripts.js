@@ -27,6 +27,8 @@ export const updateDB=(word)=>{
     dbUserWords.child('words').push(word)
 }
 
+
+
 export const checkForWinner=()=>{
     let userWordsArr
     dbUserWords.child('words').once('value', snap =>{

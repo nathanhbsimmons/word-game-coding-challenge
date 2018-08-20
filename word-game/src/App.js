@@ -37,7 +37,7 @@ class App extends Component {
         
         <footer>
           <h5>Race against the clock and your opponents to discover as many words as you can out of the 9 random letters given! 
-          You will have 60 seconds. Letters will be given and Counterwill begin when you press the "PLAY" button above. 
+          You will have 60 seconds. Letters will be given and time will begin when you press the "PLAY" button above. 
           Type words into input above and hit the "Enter" key to submit. Words can only be used once and letters cannot be used twice in a word.</h5>
         </footer>
     

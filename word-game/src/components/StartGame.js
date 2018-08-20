@@ -7,7 +7,7 @@ class StartGame extends Component {
 
     timer = () => this.props.count === 0 ? (clearInterval(interval), checkForWinner()) : this.props.setCount();
         
-    startTimer = () => {
+    timerControl = () => {
       if (this.props.count !== 60) {
         this.props.resetCount();
         this.props.resetWordsUsed();
@@ -21,7 +21,7 @@ class StartGame extends Component {
   render(props) {
     return (
         <div className="startButtonDiv" >
-          <button className="startButton" onClick={()=>{this.startTimer(); this.props.generateLetters(generateLetters())}}>PLAY</button>
+          <button className="startButton" onClick={()=>{this.timerControl(); this.props.generateLetters(generateLetters())}}>PLAY</button>
         </div>
     );
   }
