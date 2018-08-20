@@ -31,8 +31,11 @@ clearInput=()=>{
         <div>
           Enter username<br/>
           to create new game:<br/>
-          <input type="text" value={this.state.input} onChange={(e)=>this.handleChange(e)}/>
+          <div className="usernameInputContainer">
+          <input className="usernameInput" type="text" value={this.state.input} onChange={(e)=>this.handleChange(e)}/>
           <input className="submitButton" type="submit" value="SUBMIT" onClick={()=>this.handleClick()}/>
+          </div>
+          
         </div>
     );
   }

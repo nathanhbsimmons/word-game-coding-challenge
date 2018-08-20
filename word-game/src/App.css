@@ -9,9 +9,9 @@ body {
   height: 100vh;
 }
 
-.App {
+/* .App {
   
-}
+} */
 header {
   display: flex;
   justify-content: space-between;
@@ -33,9 +33,9 @@ textarea {
 
 .submitButton {
   background-image: url('./img/titlebrick.png');
-  background-size:cover;
+  background-size: 100% 100%;
   width: 8em;
-  height: 23px;
+  height: 25px;
   color: ghostwhite;
   font-family: 'Press Start 2P', cursive;
   font-size: 8px;
@@ -44,9 +44,13 @@ textarea {
   margin: auto 0;
 }
 
+.usernameInputContainer {
+ display: flex;
+}
+
 .startButton {
   background-image: url('./img/titlebrick.png');
-  background-size:cover;
+  background-size: 100% 100%;
   width: 10em;
   height: 5em;
   color: ghostwhite;
@@ -64,7 +68,6 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .emptyDiv {
@@ -88,6 +91,7 @@ textarea {
 .lettersContainer {
   display: flex;
   justify-content: center;
+  margin-top: 5px;
 }
 
 .wordsContainer {
