@@ -1,29 +1,26 @@
 import React, { Component } from 'react';
 import fire from '../firebase/firebase';
 import firebase from 'firebase';
-import {dbUserWords} from '../scripts.js'
+import {dbUserWords} from '../scripts.js';
+import '../App.css';
 
 
 
 class EnteredWordsDisplay extends Component {
     state = {
-        username: null
+        username: null,
+        count: 0
     }
 
     componentDidMount(){
-        dbUserWords.child('user').on('value', snap => {
-            this.setState({
-                username: snap.val()
-            })
-        })
+        dbUserWords.child('user').on('value', (snap) => this.setState({ username: snap.val(),count: this.state.count +1 }))
     }
+        
     
-
     renderUsername=()=>{
-        if(this.state.username){
-            return <div>{this.state.username}</div>
+        if(this.state.username && this.state.count === 2){
+            return <div className="username">{this.state.username}</div>
         } else {
-            
             return <div></div>
         }
     }
@@ -38,13 +35,10 @@ class EnteredWordsDisplay extends Component {
     }
 
     render(props) {
-        
         return(
             <div>
-
             {this.renderUsername()}
             {this.renderPlayerWords()}
-
             </div>
         );
     }
