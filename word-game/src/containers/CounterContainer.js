@@ -1,6 +1,6 @@
-import Timer from "../components/Timer";
+import Counter from "../components/Counter";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({count: state.count})
 
-export default connect(mapStateToProps)(Timer);
+export default connect(mapStateToProps)(Counter);
