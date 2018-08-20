@@ -10,13 +10,13 @@ class EnteredWordsDisplay extends Component {
         username: null
     }
 
-    // componentDidUpdate(){
-    //     dbUserWords.child('user').on('value', snap => {
-    //         this.setState({
-    //             username: snap.val()
-    //         })
-    //     })
-    // }
+    componentDidMount(){
+        dbUserWords.child('user').on('value', snap => {
+            this.setState({
+                username: snap.val()
+            })
+        })
+    }
     
 
     renderUsername=()=>{
