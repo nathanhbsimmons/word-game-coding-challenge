@@ -29,7 +29,7 @@ checkWord = (e, props, fire) => {
 }
 
 renderErrorMessage=(props)=>{
-    let error = this.props.error
+    let {error} = this.props
     if(error){
         return (<h2>{error}</h2>)
     } else {
