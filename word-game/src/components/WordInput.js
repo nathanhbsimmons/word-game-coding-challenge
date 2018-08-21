@@ -28,6 +28,15 @@ checkWord = (e, props, fire) => {
     }
 }
 
+
+renderInput=(props)=>{
+    if(this.props.count === 0){
+        return <div></div>
+    } else {
+        return <input  type="text" onKeyPress={(e)=>{this.checkWord(e)}}/>
+    }
+}
+
 renderErrorMessage=(props)=>{
     let {error} = this.props
     if(error){
@@ -40,7 +49,7 @@ renderErrorMessage=(props)=>{
   render(props) {
     return (
         <div>
-            <input  type="text" onKeyPress={(e)=>{this.checkWord(e)}}/>
+            {this.renderInput()}
             {this.renderErrorMessage()}
         </div>
     );

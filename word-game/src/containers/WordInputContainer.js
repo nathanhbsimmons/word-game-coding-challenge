@@ -19,6 +19,6 @@ function mapDispatchToProps(dispatch) {
   };
   }
 
-const mapStateToProps = state => ({ playersWords: state.playersWords, wordsUsed: state.wordsUsed, letters: state.letters, error: state.error })
+const mapStateToProps = state => ({ playersWords: state.playersWords, wordsUsed: state.wordsUsed, letters: state.letters, error: state.error, count: state.count })
 
 export default connect(mapStateToProps,mapDispatchToProps)(WordInput);
