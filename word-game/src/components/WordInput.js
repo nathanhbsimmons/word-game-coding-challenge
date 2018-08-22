@@ -28,7 +28,6 @@ checkWord = (e, props, fire) => {
     }
 }
 
-
 renderInput=(props)=>{
     if(this.props.count === 0){
         return <div></div>
