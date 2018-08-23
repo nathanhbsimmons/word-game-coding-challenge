@@ -7,8 +7,29 @@ import EnterUsername from './components/EnterUsername';
 import StartGameContainer from './containers/StartGameContainer';
 import UsedWordsDisplay from './components/UsedWordsDisplay';
 import CounterContainer from './containers/CounterContainer';
+import WinnerDisplayContainer from './containers/WinnerDisplayContainer'
 
 class App extends Component { 
+
+  renderMain=()=>{
+    let {winner} = this.props
+    if(winner){
+      <WinnerDisplayContainer/>
+    } else {
+      <div>
+        <div className="lettersContainer">
+          <LettersDisplayContainer/>
+        </div>
+      
+        <div className="wordsContainer">
+          <WordInputContainer/>
+          <EnteredWordsDisplayContainer/>
+          <UsedWordsDisplay/>
+        </div>
+      </div> 
+    }
+  }
+
   render(props) {
    
     return (
@@ -21,15 +42,7 @@ class App extends Component {
         
         <EnterUsername/>
         
-        <div className="lettersContainer">
-          <LettersDisplayContainer/>
-        </div>
-        
-        <div className="wordsContainer">
-          <WordInputContainer/>
-          <EnteredWordsDisplayContainer/>
-          <UsedWordsDisplay/>
-        </div>
+        {this.renderMain()}
        
         <div className="startContainer">
           <StartGameContainer/>

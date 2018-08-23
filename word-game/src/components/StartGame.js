@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {createGame, checkForWinner, generateLetters} from '../scripts'
+import {createGame,checkForWinner,generateLetters} from '../scripts'
 
 let interval
  

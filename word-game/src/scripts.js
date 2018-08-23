@@ -26,8 +26,6 @@ export const updateDB=(word)=>{
     dbUserWords.child('words').push(word)
 }
 
-
-
 export const checkForWinner=()=>{
     let userWordsArr
     let fakeUserWordsArr1 = ["dog", "cat"]

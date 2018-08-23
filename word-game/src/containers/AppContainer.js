@@ -11,6 +11,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const mapStateToProps = state => ({count: state.count})
+const mapStateToProps = state => ({count: state.count, winner: state.winner})
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);
