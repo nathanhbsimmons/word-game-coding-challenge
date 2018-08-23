@@ -8,7 +8,6 @@ export const dbLetters = fire.database().ref('/games/game/letters');
 export const dbWordsUsed = fire.database().ref('/words').child('used');
 
 
-
 export const createUser=(user)=>{
     dbUser.update({"username": user})
 }
@@ -31,11 +30,16 @@ export const updateDB=(word)=>{
 
 export const checkForWinner=()=>{
     let userWordsArr
+    let fakeUserWordsArr1 = ["dog", "cat"]
+    let fakeUserWordsArr2 = ["run", "hide", "seek"]
+
     dbUserWords.child('words').once('value', snap =>{
         userWordsArr = Object.values(snap.val())
         console.log(userWordsArr)
     })
-   
+   if(userWordsArr > fakeUserWordsArr1 && userWordsArr > fakeUserWordsArr2){
+       return dbUserWords.child('user').once('value', snap => Object.values(snap.val()))
+   }
 }
 
 export const generateLetters=()=>{

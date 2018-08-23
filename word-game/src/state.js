@@ -4,4 +4,5 @@ export default {
     wordsUsed: [],
     playersWords: [],
     error: null,
+    winner: null
 }

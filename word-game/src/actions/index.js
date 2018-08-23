@@ -45,6 +45,13 @@ export function setCount(){
     }
   }
 
+  export function setWinner(user){
+    return {
+      type:"SET_ERROR",
+      value: user
+    }
+  }
+
 
 
   // export function inputPlayersWordDB(word, fire){

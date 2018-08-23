@@ -1,6 +1,6 @@
 import StartGame from "../components/StartGame";
 import { connect } from "react-redux";
-import { setCount,generateLetters,resetCount,resetWordsUsed,setError } from "../actions";
+import { setCount,generateLetters,resetCount,resetWordsUsed,setError,setWinner } from "../actions";
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -22,6 +22,10 @@ function mapDispatchToProps(dispatch) {
         },
         setError: function (error) {
           let action = setError(error);
+          dispatch(action);
+        },
+        setWinner: function (user) {
+          let action = setWinner(user);
           dispatch(action);
         },
   };

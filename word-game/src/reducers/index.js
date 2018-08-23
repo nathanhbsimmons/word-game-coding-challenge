@@ -45,6 +45,13 @@ function error(state = "", action) {
   return state;
 }
 
-const rootReducer = combineReducers({count, letters, wordsUsed, playersWords, error});
+function winner(state = "", action) {
+  if (action.type === "SET_WINNER") {
+    return action.value;
+  }
+  return state;
+}
+
+const rootReducer = combineReducers({count, letters, wordsUsed, playersWords, error, winner});
 
 export default rootReducer;
