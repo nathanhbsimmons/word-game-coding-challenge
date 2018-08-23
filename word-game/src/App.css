@@ -9,15 +9,11 @@ body {
   height: 100vh;
 }
 
-/* .App {
-  
-} */
 header {
   display: flex;
   justify-content: space-between;
   text-align: center;
   margin: .3em;
-
 }
 
 input[type='text'],

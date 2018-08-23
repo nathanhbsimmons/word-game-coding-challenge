@@ -33,7 +33,6 @@ function playersWords(state = [], action) {
     return [...state, action.value];
   }
   if (action.type === "RESET_WORDS_USED") {
-
     return state = [];
   }
   return state;
@@ -46,7 +45,6 @@ function error(state = "", action) {
   return state;
 }
 
-  const rootReducer = combineReducers({
-    count, letters, wordsUsed, playersWords, error
-  });
-  export default rootReducer;
+const rootReducer = combineReducers({count, letters, wordsUsed, playersWords, error});
+
+export default rootReducer;

@@ -8,8 +8,6 @@ const config = {
     storageBucket: "words-game-challenge.appspot.com",
     messagingSenderId: "947999103971"
   };
-
-
   
 const fire = firebase.initializeApp(config);
 
