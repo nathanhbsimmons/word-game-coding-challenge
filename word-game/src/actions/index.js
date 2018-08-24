@@ -47,7 +47,7 @@ export function setCount(){
 
   export function setWinner(user){
     return {
-      type:"SET_ERROR",
+      type:"SET_WINNER",
       value: user
     }
   }

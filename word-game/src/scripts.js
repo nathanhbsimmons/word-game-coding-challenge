@@ -27,18 +27,28 @@ export const updateDB=(word)=>{
 }
 
 export const checkForWinner=()=>{
+    
     let userWordsArr
     let fakeUserWordsArr1 = ["dog", "cat"]
     let fakeUserWordsArr2 = ["run", "hide", "seek"]
 
     dbUserWords.child('words').once('value', snap =>{
+        let user
         userWordsArr = Object.values(snap.val())
         console.log(userWordsArr)
+      if(userWordsArr.length > fakeUserWordsArr1.length && userWordsArr.length > fakeUserWordsArr2.length){
+            return dbUserWords.child('user').once('value', snap =>{
+                user = Object.values(snap.val())
+                console.log(user.toString())
+                return user.toString()
+            })
+        } else {
+            return
+        }
     })
-   if(userWordsArr > fakeUserWordsArr1 && userWordsArr > fakeUserWordsArr2){
-       return dbUserWords.child('user').once('value', snap => Object.values(snap.val()))
-   }
+
 }
+
 
 export const generateLetters=()=>{
     let vowelArr = [];

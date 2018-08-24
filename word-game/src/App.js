@@ -13,10 +13,10 @@ class App extends Component {
 
   renderMain=()=>{
     let {winner} = this.props
-    if(winner){
-      <WinnerDisplayContainer/>
+    if(winner !== null){
+      return <WinnerDisplayContainer/>
     } else {
-      <div>
+      return (<div>
         <div className="lettersContainer">
           <LettersDisplayContainer/>
         </div>
@@ -26,7 +26,7 @@ class App extends Component {
           <EnteredWordsDisplayContainer/>
           <UsedWordsDisplay/>
         </div>
-      </div> 
+      </div>) 
     }
   }
 
