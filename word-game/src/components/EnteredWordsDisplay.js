@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import {dbUserWords} from '../scripts.js';
 import '../App.css';
 import {Animated} from "react-animated-css";
+import animate from "animate.css"
 
 
 class EnteredWordsDisplay extends Component {
@@ -27,7 +28,7 @@ class EnteredWordsDisplay extends Component {
     renderPlayerWords=(props)=>{
         const playersWords = this.props.playersWords
         if(playersWords){  
-            return playersWords.map((word, i)=><Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}><div key={i}>{word}</div>  </Animated>)
+            return playersWords.map((word, i)=><Animated animationIn="lightSpeedIn" animationOut="fadeOut" isVisible={true}><div key={i}>{word}</div>  </Animated>)
            } else {
            return <div></div>
            }  

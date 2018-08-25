@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import fire from '../firebase/firebase';
 import firebase from 'firebase';
-import {checkLetters, updateDB, dbWordsUsed} from '../scripts.js'
+import {checkLetters, updateDB, dbWordsUsed} from '../scripts.js';
+import {Animated} from "react-animated-css";
 
 
 class WordInput extends Component {
@@ -39,7 +40,9 @@ renderInput=(props)=>{
 renderErrorMessage=(props)=>{
     let {error} = this.props
     if(error){
-        return (<h2>{error}</h2>)
+        return ( <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}>
+                    <h2>{error}</h2>
+                 </Animated>   )
     } else {
         return <h2></h2>
     }
