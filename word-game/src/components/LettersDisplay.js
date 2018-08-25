@@ -1,15 +1,11 @@
-import React, { Component }  from 'react';
-import {Animated} from "react-animated-css";
+import React from 'react';
  
 function LettersDisplay(props) {
     
     const letters = props.letters
 
         if(letters){
-            return props.letters.map((letter, i)=>{
-                <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}>
-                    <p key={i} className="letters">{letter}</p>
-                </Animated>})
+            return props.letters.map((letter, i)=><p key={i} className="letters">{letter}</p>)
         } else {
             return <div className="emptyDiv"></div>
         }  
